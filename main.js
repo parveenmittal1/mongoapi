@@ -10,8 +10,7 @@ app.use(bp.json());
 
 app.get('/',function (req,res) {
     console.log("PPS open at port: "+port);
-        res.send("PPS open at port: "+port);
-
+    res.send("PPS open at port: "+port);
 });
 
 var success = {
@@ -25,7 +24,7 @@ var failure = {
 /*##############################################################*/
 var db;
 var url='mongodb://asr:asr@ds127101.mlab.com:27101/asr';
-mnDb.connect(url,{ useNewUrlParser: true },function (err,database) {
+mnDb.connect(url,function (err,database) {
     db=database;
     app.listen(port,function () {
         console.log('connected to :'+port);
@@ -52,15 +51,7 @@ app.post('/save',function (req,res) {
 
 app.post('/view',function (req,res) {
 
-    db.collection('prvjson').find({}).toArray(function(err,resl){
-        console.log(resl);
-        res.send(resl);
-    });
-
-});
-app.get('/getview',function (req,res) {
-
-    db.collection('prvjson').find({}).toArray(function(err,resl){
+    db.collection('prvjson').find({},{message:1,_id:1}).toArray(function(err,resl){
         console.log(resl);
         res.send(resl);
     });
@@ -72,8 +63,8 @@ var original=[{"_id":"5cc21b39edf6760017961f21","index":0,"guid":"054be26a-46ae-
 
 app.get('/original',function (req,res) {
         res.send(original);
-    
 
 });
+
 
 /*###################################################################3*/
