@@ -23,7 +23,7 @@ var failure = {
 /*##############################################################*/
 var db;
 var url='mongodb://asr:asr@ds127101.mlab.com:27101/asr';
-mnDb.connect(url,function (err,database) {
+mnDb.connect(url,{ useNewUrlParser: true },function (err,database) {
     db=database;
     app.listen(port,function () {
         console.log('connected to :'+port);
