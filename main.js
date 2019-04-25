@@ -52,7 +52,7 @@ app.post('/save',function (req,res) {
 
 app.post('/view',function (req,res) {
 
-    db.collection('prvjson').find({},{message:1,_id:0}).toArray(function(err,resl){
+    db.collection('prvjson').find({}).toArray(function(err,resl){
         console.log(resl);
         res.send(resl);
     });
