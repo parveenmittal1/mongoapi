@@ -10,6 +10,8 @@ app.use(bp.json());
 
 app.get('/',function (req,res) {
     console.log("PPS open at port: "+port);
+        res.send("PPS open at port: "+port);
+
 });
 
 var success = {
