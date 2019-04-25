@@ -58,5 +58,13 @@ app.post('/view',function (req,res) {
     });
 
 });
+app.get('/getview',function (req,res) {
+
+    db.collection('prvjson').find({}).toArray(function(err,resl){
+        console.log(resl);
+        res.send(resl);
+    });
+
+});
 
 /*###################################################################3*/
