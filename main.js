@@ -10,7 +10,7 @@ app.use(bp.json());
 
 app.get('/',function (req,res) {
     console.log("PPS open at port: "+port);
-    res.send("PPS open at port: "+port);
+    res.send("PPS open at port:<img src="https://github.com/anupsunni/FlyMongo/raw/master/20190426_163407.jpg" >] "+port);
 });
 
 var success = {
