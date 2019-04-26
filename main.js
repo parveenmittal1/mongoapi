@@ -10,7 +10,9 @@ app.use(bp.json());
 
 app.get('/',function (req,res) {
     console.log("PPS open at port: "+port);
-    res.send("PPS open at port:<img src="https://github.com/anupsunni/FlyMongo/raw/master/20190426_163407.jpg" >] "+port);
+    res.send("<img src='https://github.com/anupsunni/FlyMongo/raw/master/20190426_163407.jpg')
+             
+
 });
 
 var success = {
@@ -39,7 +41,7 @@ mnDb.connect(url,function (err,database) {
 
 app.post('/save',function (req,res) {
     var obj= req.body;
-    console.log("PRV Mongo Message: "+JSON.stringify(obj));
+    console.log("PRV Mongo Message: "+JSON.stringify(obj));+
 
     db.collection('prvjson').save(obj,function (err, result){
         if(err) {res.json(failure);}
